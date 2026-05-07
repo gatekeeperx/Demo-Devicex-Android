@@ -18,7 +18,17 @@ import com.gatekeeperx.devicex.foodhub.utils.PermissionUtils
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
- * Main activity with Splash → Login → Home flow
+ * Main activity with Splash → Login → Home flow.
+ *
+ * ## TTFD (Time to Fully Drawn)
+ * [reportFullyDrawn] is called when the Login screen is first shown — the earliest
+ * point at which the app is interactive and the SDK startup pipeline has had
+ * sufficient time to complete (the 2.5s splash absorbs most SDK init overhead).
+ *
+ * This signal is consumed by:
+ *   - Android vitals (Play Console)
+ *   - Macrobenchmark's `StartupTimingMetric` → `timeToFullyDrawnMs`
+ *   - `adb shell am start -W`
  */
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -41,10 +51,18 @@ class MainActivity : ComponentActivity() {
     private fun AppNavigation() {
         var currentScreen by remember { mutableStateOf(Screen.Splash) }
 
+        // Signal TTFD the first time the Login screen is displayed.
+        // reportFullyDrawn() is idempotent — safe to re-call on recomposition.
+        LaunchedEffect(currentScreen) {
+            if (currentScreen == Screen.Login) {
+                reportFullyDrawn()
+            }
+        }
+
         // Location permission launcher
         val locationPermissionLauncher = rememberLauncherForActivityResult(
             contract = ActivityResultContracts.RequestMultiplePermissions()
-        ) { permissions ->
+        ) { _ ->
             // Permissions handled, continue to home screen
             currentScreen = Screen.Home
         }

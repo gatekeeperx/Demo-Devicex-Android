@@ -27,10 +27,17 @@ material = "1.12.0"
 coroutines = "1.7.3"
 
 # GatekeeperX
-devicex = "1.2.9"
+devicex = "1.3.4"
 
 # Image Loading
 coil = "2.5.0"
+
+# Benchmarking
+macrobenchmark = "1.3.3"
+profileinstaller = "1.3.1"
+uiautomator = "2.3.0"
+junit = "4.13.2"
+androidxTestExtJunit = "1.1.5"
 
 [libraries]
 # AndroidX Core
@@ -62,6 +69,13 @@ gatekeeperx-devicex = { group = "com.gatekeeperx", name = "devicex", version.ref
 # Image Loading
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 
+# Benchmarking
+androidx-benchmark-macro = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "macrobenchmark" }
+androidx-profileinstaller = { group = "androidx.profileinstaller", name = "profileinstaller", version.ref = "profileinstaller" }
+androidx-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiautomator" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxTestExtJunit" }
+
 # Hilt
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
@@ -70,6 +84,7 @@ hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-com
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+android-test = { id = "com.android.test", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

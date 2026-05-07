@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Empty manifest required by the com.android.test plugin.
+    All configuration is in benchmark/build.gradle.kts.
+-->
+<manifest />

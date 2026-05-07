@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "FoodHub"
 include(":app")
+include(":benchmark")
  
