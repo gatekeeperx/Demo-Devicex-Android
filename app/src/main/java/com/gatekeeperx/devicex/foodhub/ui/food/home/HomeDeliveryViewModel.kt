@@ -118,6 +118,7 @@ class HomeDeliveryViewModel @Inject constructor() : ViewModel() {
                     when (result) {
                         is EventResult.Success -> {
                             Log.d(TAG, "✓ Product view event sent - Product: $dishName, DeviceXId: ${result.deviceXId}")
+                            Log.d(TAG, "✓ Product view event sent - Product: $dishName, DeviceXSessionId: ${result.deviceXSessionId}")
                         }
 
                         is EventResult.Failure -> {
@@ -156,6 +157,7 @@ class HomeDeliveryViewModel @Inject constructor() : ViewModel() {
                     when (result) {
                         is EventResult.Success -> {
                             Log.d(TAG, "✓ Category selected event sent - Category: $categoryId, DeviceXId: ${result.deviceXId}")
+                            Log.d(TAG, "✓ Category selected event sent - Category: $categoryId, DeviceXSessionId: ${result.deviceXSessionId}")
                         }
 
                         is EventResult.Failure -> {

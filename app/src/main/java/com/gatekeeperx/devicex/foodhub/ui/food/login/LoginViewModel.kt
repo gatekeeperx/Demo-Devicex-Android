@@ -103,6 +103,7 @@ class LoginViewModel @Inject constructor() : ViewModel() {
                     when (result) {
                         is EventResult.Success -> {
                             Log.d(TAG, "✓ Login event sent - DeviceXId: ${result.deviceXId}")
+                            Log.d(TAG, "✓ Login event sent - DeviceXSessionId: ${result.deviceXSessionId}")
                             _uiState.update {
                                 it.copy(
                                     isLoading = false,

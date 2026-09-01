@@ -98,6 +98,7 @@ class OrderViewModel @Inject constructor() : ViewModel() {
                     when (result) {
                         is EventResult.Success -> {
                             Log.d(TAG, "✓ Checkout event sent - Order: ${_uiState.value.orderNumber}, DeviceXId: ${result.deviceXId}")
+                            Log.d(TAG, "✓ Checkout event sent - Order: ${_uiState.value.orderNumber}, DeviceXSessionId: ${result.deviceXSessionId}")
                         }
 
                         is EventResult.Failure -> {
@@ -128,6 +129,7 @@ class OrderViewModel @Inject constructor() : ViewModel() {
                     when (result) {
                         is EventResult.Success -> {
                             Log.d(TAG, "✓ Order delivered event sent - Order: ${_uiState.value.orderNumber}, DeviceXId: ${result.deviceXId}")
+                            Log.d(TAG, "✓ Order delivered event sent - Order: ${_uiState.value.orderNumber}, DeviceXSessionId: ${result.deviceXSessionId}")
                         }
 
                         is EventResult.Failure -> {

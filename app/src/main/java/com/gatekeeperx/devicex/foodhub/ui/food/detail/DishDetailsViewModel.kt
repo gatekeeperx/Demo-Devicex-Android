@@ -113,6 +113,7 @@ class DishDetailsViewModel @Inject constructor(
                     when (result) {
                         is EventResult.Success -> {
                             Log.d(TAG, "✓ Add to cart event sent - Product: ${dish.name}, DeviceXId: ${result.deviceXId}")
+                            Log.d(TAG, "✓ Add to cart event sent - Product: ${dish.name}, DeviceXSessionId: ${result.deviceXSessionId}")
                         }
 
                         is EventResult.Failure -> {
