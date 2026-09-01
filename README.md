@@ -31,7 +31,7 @@ The DeviceX SDK is integrated using Gradle:
 
 ```gradle
 dependencies {
-    implementation("com.gatekeeperx:devicex:1.2.9")
+    implementation("com.gatekeeperx:devicex:1.3.7")
 }
 ```
 
